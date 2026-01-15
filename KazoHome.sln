@@ -1,7 +1,6 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31919.166
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SDK", "SDK", "{E1A2F3D4-5B6C-7D8E-9F0A-1B2C3D4E5F60}"
 EndProject
@@ -20,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		docs\NETDAEMON_ANALYSIS.md = docs\NETDAEMON_ANALYSIS.md
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KazoHome.SDK.Templates", "src\KazoHome.SDK.Templates\KazoHome.SDK.Templates.csproj", "{722590BB-3E8F-69B7-B04C-51705FB1B810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +44,10 @@ Global
 		{D4E5F6A7-B8C9-0D1E-2F3A-4B5C6D7E8F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4E5F6A7-B8C9-0D1E-2F3A-4B5C6D7E8F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4E5F6A7-B8C9-0D1E-2F3A-4B5C6D7E8F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722590BB-3E8F-69B7-B04C-51705FB1B810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722590BB-3E8F-69B7-B04C-51705FB1B810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722590BB-3E8F-69B7-B04C-51705FB1B810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722590BB-3E8F-69B7-B04C-51705FB1B810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +57,7 @@ Global
 		{B2C3D4E5-F6A7-8B9C-0D1E-2F3A4B5C6D7E} = {E1A2F3D4-5B6C-7D8E-9F0A-1B2C3D4E5F60}
 		{C3D4E5F6-A7B8-9C0D-1E2F-3A4B5C6D7E8F} = {E1A2F3D4-5B6C-7D8E-9F0A-1B2C3D4E5F60}
 		{D4E5F6A7-B8C9-0D1E-2F3A-4B5C6D7E8F9A} = {E1A2F3D4-5B6C-7D8E-9F0A-1B2C3D4E5F60}
+		{722590BB-3E8F-69B7-B04C-51705FB1B810} = {F6A7B8C9-D0E1-2F3A-4B5C-6D7E8F9A0B1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E9F0A1B-2C3D-4E5F-6A7B-8C9D0E1F2A3B}

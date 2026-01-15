@@ -16,8 +16,19 @@ KazoHome.SDK enables .NET developers to build Home Assistant solutions using mod
 
 ### Install Templates
 
+**From NuGet (when published):**
 ```bash
 dotnet new install KazoHome.SDK.Templates
+```
+
+**Local installation (for development):**
+```bash
+# Clone the repository
+git clone --recurse-submodules https://github.com/werddomain/ha-solution.git
+cd ha-solution
+
+# Install templates from local folder
+dotnet new install ./templates
 ```
 
 ### Create a New Project

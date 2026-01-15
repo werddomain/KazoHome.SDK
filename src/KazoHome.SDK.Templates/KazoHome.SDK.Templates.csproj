@@ -3,6 +3,7 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageId>KazoHome.SDK.Templates</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
     <Title>KazoHome.SDK Project Templates</Title>
     <Description>Templates for creating Home Assistant addons, cards, views, integrations, and automations with .NET</Description>
     <Authors>KazoHome</Authors>
@@ -12,16 +13,19 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <!-- Template package settings -->
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>true</IsPackable>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <NoDefaultExcludes>true</NoDefaultExcludes>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\..\templates\**\*" Exclude="..\..\templates\**\bin\**;..\..\templates\**\obj\**" />
+    <Content Include="..\..\templates\**\*" Exclude="..\..\templates\**\bin\**;..\..\templates\**\obj\**" PackagePath="content" />
     <Compile Remove="**\*" />
   </ItemGroup>
 
