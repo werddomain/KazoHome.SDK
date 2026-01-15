@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>KazoHome.SDK.Bridge</PackageId>
+    <Description>C# to Python bridge for Home Assistant custom_components integration</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KazoHome.SDK.Core\KazoHome.SDK.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.67.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.29.3" />
+    <PackageReference Include="Grpc.Tools" Version="2.67.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0" />
+  </ItemGroup>
+
+  <!-- Include Python proxy files as content -->
+  <ItemGroup>
+    <Content Include="Python\**\*.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Python\**\*.py" Pack="true" PackagePath="content\python" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+@namespace KazoHome.SDK.Blazor.Components
+
+<div class="kazohome-entity-state @CssClass">
+    @if (IsLoading)
+    {
+        <span class="loading">Loading...</span>
+    }
+    else if (State is not null)
+    {
+        <span class="state-value">@State.State</span>
+        @if (ShowLastUpdated && State.LastUpdated.HasValue)
+        {
+            <span class="last-updated">@State.LastUpdated.Value.ToLocalTime().ToString("g")</span>
+        }
+    }
+    else
+    {
+        <span class="unavailable">Unavailable</span>
+    }
+</div>
+
+@code {
+    /// <summary>
+    /// The entity state to display
+    /// </summary>
+    [Parameter]
+    public KazoEntityState? State { get; set; }
+
+    /// <summary>
+    /// Whether the state is loading
+    /// </summary>
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    /// <summary>
+    /// Whether to show the last updated time
+    /// </summary>
+    [Parameter]
+    public bool ShowLastUpdated { get; set; } = false;
+
+    /// <summary>
+    /// Additional CSS class for styling
+    /// </summary>
+    [Parameter]
+    public string? CssClass { get; set; }
+}

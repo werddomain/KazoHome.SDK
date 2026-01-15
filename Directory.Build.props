@@ -1,0 +1,29 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>All</AnalysisMode>
+  </PropertyGroup>
+
+  <!-- Sensible defaults for all projects -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- NuGet package properties -->
+  <PropertyGroup>
+    <Authors>KazoHome</Authors>
+    <Company>KazoHome</Company>
+    <PackageProjectUrl>https://github.com/werddomain/ha-solution</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/werddomain/ha-solution</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>home-assistant;homeassistant;automation;IoT;ha;hass;blazor;sdk</PackageTags>
+  </PropertyGroup>
+</Project>

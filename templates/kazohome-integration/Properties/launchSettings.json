@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "KazoHomeIntegration": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    },
+    "Remote Debug (vsdbg)": {
+      "commandName": "Executable",
+      "executablePath": "ssh",
+      "commandLineArgs": "-t homeassistant \"cd /config/kazohome/kazohome_integration && vsdbg --interpreter=vscode\"",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+global using System;
+global using System.Buffers;
+global using System.Collections.Concurrent;
+global using System.IO;
+global using System.Net.Sockets;
+global using System.Reactive.Linq;
+global using System.Reactive.Subjects;
+global using System.Text;
+global using System.Text.Json;
+global using System.Threading;
+global using System.Threading.Tasks;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using KazoHome.SDK.Core.Abstractions;

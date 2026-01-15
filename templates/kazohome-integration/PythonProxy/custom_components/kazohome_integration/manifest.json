@@ -1,0 +1,11 @@
+{
+  "domain": "kazohome_integration",
+  "name": "KazoHome Integration",
+  "codeowners": ["@kazohome"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/werddomain/ha-solution",
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "1.0.0"
+}

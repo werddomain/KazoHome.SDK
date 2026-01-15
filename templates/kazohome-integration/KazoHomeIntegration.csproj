@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>KazoHomeIntegration</RootNamespace>
+    
+    <!-- Python Proxy Settings -->
+    <PythonProxyFolder>PythonProxy</PythonProxyFolder>
+    <IntegrationDomain>kazohome_integration</IntegrationDomain>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+    <!-- TODO: Replace with NuGet reference when published -->
+    <!-- <PackageReference Include="KazoHome.SDK.Core" Version="1.0.0" /> -->
+    <!-- <PackageReference Include="KazoHome.SDK.Bridge" Version="1.0.0" /> -->
+  </ItemGroup>
+
+  <!-- Include Python files for visibility in Visual Studio -->
+  <ItemGroup>
+    <None Include="$(PythonProxyFolder)\**\*.py" />
+    <Content Include="$(PythonProxyFolder)\**\*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- 
+    Atomic Deployment Target 
+    Deploys both .NET binary and Python proxy together
+  -->
+  <Target Name="DeployToHomeAssistant" AfterTargets="Publish">
+    <PropertyGroup>
+      <HomeAssistantConfigPath Condition="'$(HomeAssistantConfigPath)' == ''">/config</HomeAssistantConfigPath>
+      <CustomComponentsPath>$(HomeAssistantConfigPath)/custom_components/$(IntegrationDomain)</CustomComponentsPath>
+      <DotNetDeployPath>$(HomeAssistantConfigPath)/kazohome/$(IntegrationDomain)</DotNetDeployPath>
+    </PropertyGroup>
+    
+    <Message Text="Deploying .NET binary to $(DotNetDeployPath)" Importance="high" />
+    <MakeDir Directories="$(DotNetDeployPath)" />
+    <Copy SourceFiles="@(PublishFiles)" DestinationFolder="$(DotNetDeployPath)" />
+    
+    <Message Text="Deploying Python proxy to $(CustomComponentsPath)" Importance="high" />
+    <MakeDir Directories="$(CustomComponentsPath)" />
+    <Copy SourceFiles="@(PythonProxyFiles)" DestinationFolder="$(CustomComponentsPath)" />
+  </Target>
+
+  <ItemGroup>
+    <PublishFiles Include="$(PublishDir)**\*" />
+    <PythonProxyFiles Include="$(PythonProxyFolder)\custom_components\$(IntegrationDomain)\**\*" />
+  </ItemGroup>
+
+</Project>

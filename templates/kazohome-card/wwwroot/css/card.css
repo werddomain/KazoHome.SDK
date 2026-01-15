@@ -1,0 +1,32 @@
+.kazohome-card {
+    padding: 16px;
+    background: var(--ha-card-background, var(--card-background-color, white));
+    border-radius: var(--ha-card-border-radius, 4px);
+    box-shadow: var(--ha-card-box-shadow, none);
+}
+
+.kazohome-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.1em;
+    color: var(--primary-text-color);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-button {
+    padding: 8px 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.card-button:hover {
+    background: var(--primary-color-dark);
+}

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>KazoHome.SDK.Templates</PackageId>
+    <Title>KazoHome.SDK Project Templates</Title>
+    <Description>Templates for creating Home Assistant addons, cards, views, integrations, and automations with .NET</Description>
+    <Authors>KazoHome</Authors>
+    <PackageTags>dotnet-new;templates;home-assistant;homeassistant;blazor;automation;iot</PackageTags>
+    <PackageProjectUrl>https://github.com/werddomain/ha-solution</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/werddomain/ha-solution</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <!-- Template package settings -->
+    <TargetFramework>net10.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\templates\**\*" Exclude="..\..\templates\**\bin\**;..\..\templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>

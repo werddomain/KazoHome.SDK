@@ -1,0 +1,44 @@
+@page "/"
+@namespace KazoHomeView.Pages
+
+<PageTitle>KazoHome View</PageTitle>
+
+<div class="container">
+    <h1>Welcome to KazoHome View</h1>
+    
+    <p>This is a Blazor Server application accessible via Home Assistant Ingress.</p>
+    
+    <div class="entity-grid">
+        @foreach (var entity in Entities)
+        {
+            <div class="entity-card">
+                <h4>@entity.Name</h4>
+                <p>State: @entity.State</p>
+                <button @onclick="() => ToggleEntity(entity.Id)">Toggle</button>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<EntityInfo> Entities { get; set; } = new()
+    {
+        new("light.living_room", "Living Room Light", "on"),
+        new("switch.bedroom", "Bedroom Switch", "off"),
+        new("climate.thermostat", "Thermostat", "heating")
+    };
+
+    private void ToggleEntity(string entityId)
+    {
+        var entity = Entities.FirstOrDefault(e => e.Id == entityId);
+        if (entity != null)
+        {
+            entity.State = entity.State == "on" ? "off" : "on";
+        }
+    }
+
+    private record EntityInfo(string Id, string Name, string State)
+    {
+        public string State { get; set; } = State;
+    }
+}

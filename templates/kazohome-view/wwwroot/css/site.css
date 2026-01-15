@@ -1,0 +1,74 @@
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-background-color, #fafafa);
+    color: var(--primary-text-color, #212121);
+}
+
+.container {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 24px;
+    color: var(--primary-color, #03a9f4);
+}
+
+.entity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.entity-card {
+    padding: 16px;
+    background: var(--card-background-color, white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.entity-card h4 {
+    margin: 0 0 8px 0;
+    color: var(--primary-text-color, #212121);
+}
+
+.entity-card p {
+    margin: 0 0 12px 0;
+    color: var(--secondary-text-color, #757575);
+}
+
+.entity-card button {
+    padding: 8px 16px;
+    background: var(--primary-color, #03a9f4);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.entity-card button:hover {
+    opacity: 0.9;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
