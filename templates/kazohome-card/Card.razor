@@ -1,0 +1,51 @@
+@page "/"
+
+<div class="kazohome-card">
+    <h3>@CardName</h3>
+    
+    <div class="card-content">
+        @if (IsLoading)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <p>Entity State: @EntityState</p>
+            
+            <button class="card-button" @onclick="ToggleEntity">
+                Toggle
+            </button>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? EntityId { get; set; }
+
+    [Parameter]
+    public string CardName { get; set; } = "My Custom Card";
+
+    private string? EntityState { get; set; } = "unknown";
+    private bool IsLoading { get; set; } = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // TODO: Connect to Home Assistant via KazoHome.SDK
+        // var context = await KazoHomeContext.GetAsync();
+        // EntityState = context.GetState(EntityId)?.State;
+        
+        await Task.Delay(500); // Simulate loading
+        EntityState = "on";
+        IsLoading = false;
+    }
+
+    private async Task ToggleEntity()
+    {
+        // TODO: Call service via KazoHome.SDK
+        // await KazoHomeContext.CallServiceAsync("homeassistant", "toggle", EntityId);
+        
+        EntityState = EntityState == "on" ? "off" : "on";
+        await Task.CompletedTask;
+    }
+}

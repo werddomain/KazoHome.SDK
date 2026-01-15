@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure KazoHome Integration",
+        "description": "Configure the connection to the .NET backend",
+        "data": {
+          "socket_path": "Unix Socket Path"
+        }
+      }
+    }
+  }
+}

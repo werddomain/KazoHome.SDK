@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "KazoHome",
+  "classifications": ["Home Assistant", "Addon", "Worker Service"],
+  "identity": "KazoHome.Templates.Addon",
+  "name": "KazoHome Addon",
+  "shortName": "kazohome-addon",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "KazoHomeAddon",
+  "preferNameDirectory": true,
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net10.0",
+          "description": "Target net10.0"
+        }
+      ],
+      "defaultValue": "net10.0"
+    },
+    "AddonName": {
+      "type": "parameter",
+      "dataType": "string",
+      "defaultValue": "My KazoHome Addon",
+      "description": "The display name of the addon"
+    },
+    "AddonDescription": {
+      "type": "parameter",
+      "dataType": "string",
+      "defaultValue": "A Home Assistant addon built with KazoHome.SDK",
+      "description": "The description of the addon"
+    }
+  }
+}

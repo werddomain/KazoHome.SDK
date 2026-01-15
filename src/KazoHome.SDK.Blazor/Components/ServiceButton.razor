@@ -1,0 +1,99 @@
+@namespace KazoHome.SDK.Blazor.Components
+
+<button class="kazohome-service-button @CssClass" @onclick="OnClickAsync" disabled="@IsDisabled">
+    @if (IsExecuting)
+    {
+        <span class="executing">@ExecutingText</span>
+    }
+    else
+    {
+        @ChildContent
+    }
+</button>
+
+@code {
+    /// <summary>
+    /// The KazoHome context for calling services
+    /// </summary>
+    [Parameter]
+    public IKazoHomeContext? Context { get; set; }
+
+    /// <summary>
+    /// Service domain (e.g., "light", "switch")
+    /// </summary>
+    [Parameter]
+    public string Domain { get; set; } = "";
+
+    /// <summary>
+    /// Service name (e.g., "turn_on", "toggle")
+    /// </summary>
+    [Parameter]
+    public string Service { get; set; } = "";
+
+    /// <summary>
+    /// Target entity IDs
+    /// </summary>
+    [Parameter]
+    public IReadOnlyList<string>? EntityIds { get; set; }
+
+    /// <summary>
+    /// Service data
+    /// </summary>
+    [Parameter]
+    public object? ServiceData { get; set; }
+
+    /// <summary>
+    /// Button content
+    /// </summary>
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    /// <summary>
+    /// Text to display while executing
+    /// </summary>
+    [Parameter]
+    public string ExecutingText { get; set; } = "...";
+
+    /// <summary>
+    /// Additional CSS class
+    /// </summary>
+    [Parameter]
+    public string? CssClass { get; set; }
+
+    /// <summary>
+    /// Callback when the service call completes
+    /// </summary>
+    [Parameter]
+    public EventCallback OnServiceCalled { get; set; }
+
+    private bool IsExecuting { get; set; }
+    private bool IsDisabled => IsExecuting || Context is null || string.IsNullOrEmpty(Domain) || string.IsNullOrEmpty(Service);
+
+    private async Task OnClickAsync()
+    {
+        if (Context is null)
+            return;
+
+        IsExecuting = true;
+        StateHasChanged();
+
+        try
+        {
+            var target = EntityIds is not null
+                ? new KazoServiceTarget { EntityIds = EntityIds }
+                : null;
+
+            Context.CallService(Domain, Service, target, ServiceData);
+
+            if (OnServiceCalled.HasDelegate)
+            {
+                await OnServiceCalled.InvokeAsync();
+            }
+        }
+        finally
+        {
+            IsExecuting = false;
+            StateHasChanged();
+        }
+    }
+}
