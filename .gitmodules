@@ -1,0 +1,3 @@
+[submodule "netdaemon"]
+	path = netdaemon
+	url = https://github.com/werddomain/netdaemon.git
